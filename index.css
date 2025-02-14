@@ -1,6 +1,8 @@
 /* Yleiset tyylit */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -9,10 +11,13 @@ body {
 
 /* Ylävalikko */
 header {
-    background: #000000;
+    background: #000;
     color: #fff;
     padding: 10px 0;
     text-align: center;
+    position: absolute;
+    width: 100%;
+    z-index: 2; /* Ensure header is above the banner */
 }
 
 header .navbar {
@@ -47,45 +52,54 @@ header nav ul li a {
 .banner {
     position: relative;
     width: 100%;
-    height: 750px;
+    height: 100vh; /* Full screen height */
     background: url('banner.png') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
-    filter: grayscale(100%); /* Mustavalkoinen efekti */
+    background-color: rgba(0, 0, 0, 0.7); /* Solid black overlay */
+    background-blend-mode: multiply; /* Blend the overlay with the image */
+    
+    z-index: 1;
 }
 
 .banner h1 {
     font-size: 8.5em;
     position: relative;
     z-index: 1;
+    color: white;
 }
 
-/* Vierivä teksti */
-.marquee-container {
-    background-color: #c9ff36;
-    color: #ade90a;
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 6.5em;
-    font-weight: bold;
+.banner .banner-logo {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px; /* Adjust size as necessary */
+    z-index: 4; /* Ensure logo is above the banner */
 }
 
-.marquee {
-    display: inline-block;
-    padding-left: 100%;
-    animation: marquee 40s linear infinite;
+.banner .banner-text {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    color: white;
+    z-index: 4; /* Ensure text is above the banner */
 }
 
-@keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+/* Placeholder Title */
+.placeholder {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.placeholder h2 {
+    font-size: 2em;
+    color: #333;
 }
 
 /* Pelit */
@@ -135,26 +149,20 @@ header nav ul li a {
     text-decoration: none;
 }
 
-/* Vihreä tausta ennen footeria */
-.green-section {
-    background: #c9ff36;
-    color: #ade90a;
-    padding: 20px 0;
-    text-align: center;
-    font-size: large;
-}
-
 /* Footer */
 footer {
-    background: #000000;
+    background: #000;
     color: #fff;
     text-align: center;
     padding: 10px 0;
 }
 
-footer .footer-logo {
-    height: 50px;
+.footer-logo {
     margin-bottom: 10px;
+}
+
+.footer-logo img {
+    max-width: 200px; /* Adjust size as necessary */
     margin-top: 20px;
 }
 
